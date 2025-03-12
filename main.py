@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 from PIL import Image
-import matplotlib.pyplot as plt
+
 
 st.title("Image Compression using SVD")
 st.write('Приложение, которое позволяет пользователю загрузить изображение и выбрать количество сингулярных чисел для сжатия')
