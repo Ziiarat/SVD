@@ -1,7 +1,6 @@
 import streamlit as st
 import numpy as np
 from PIL import Image
-from sklearn.decomposition import TruncatedSVD
 import matplotlib.pyplot as plt
 
 st.title("Image Compression using SVD")
@@ -20,15 +19,6 @@ if uploaded_file is not None:
 
     # Разложение по SVD
     U, S, Vt = np.linalg.svd(image_array, full_matrices=False)
-
-    st.sidebar.write('Визуализация сингулярных значений')
-    plt.figure(figsize=(10, 5))
-    plt.plot(S, marker='o')
-    plt.title('Сингулярные значения')
-    plt.xlabel('Индекс')
-    plt.ylabel('Сингулярное значение')
-    plt.grid()
-    st.pyplot(plt)
 
     # Выбор количества сингулярных чисел
     k = st.slider("Выберите количество сингулярных значений (k)", min_value=1, max_value=min(image_array.shape), value=5)
